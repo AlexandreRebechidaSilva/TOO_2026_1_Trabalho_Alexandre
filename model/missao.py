@@ -39,6 +39,9 @@ class Missao:
           return 0
         return self.recompensa
 
+    def concluir_missao(self, heroi):
+        ...
+        
 class Mis_combate(Missao):
         def __init__(self, nome, descricao, recompensa, inimigo):
             super().__init__(nome, descricao, recompensa)
