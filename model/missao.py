@@ -127,7 +127,8 @@ class Mis_transporte(Missao):
                 return recompensa
             else: 
                 return 0
-     
+def concluir_missao(self, heroi):
+    ... 
 
 def exibir_dados(self):
         msg = f'''
