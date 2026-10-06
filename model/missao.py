@@ -35,11 +35,13 @@ class Missao:
             raise ValueError("Status inválido. Use 'PENDENTE', 'EM ANDAMENTO' ou 'CONCLUÍDA'.")
    
     def calcular_recompensa(self):
-        if self.status is not 'CONCLUIDA':
+        if self.status is not 'CONCLUÍDA':
           return 0
         return self.recompensa
 
     def concluir_missao(self, heroi):
+        self.status = 'CONCLUÍDA'
+        heroi.ganhar_xp(self.calcular_recompensa())
         ...
         
 class Mis_combate(Missao):
@@ -67,7 +69,7 @@ class Mis_combate(Missao):
             return self.__xp_por_inimigo
 
         def calcular_recompensa(self):
-            if self.status is 'CONCLUIDA':
+            if self.status is 'CONCLUÍDA':
                 recompensa=self.recompensa +(self.qtd_inimigos*self.xp_por_inimigo)
                 return recompensa
             else:
@@ -93,7 +95,7 @@ class Mis_coleta(Missao):
             return self.__xp_por_item
 
         def calcular_recompensa(self):
-            if self.status is 'CONCLUIDA':
+            if self.status is 'CONCLUÍDA':
                 recompensa=self.recompensa +(self.qtd_item*self.xp_por_item)
                 return recompensa
             else: 
@@ -122,24 +124,22 @@ class Mis_transporte(Missao):
             return self.__distancia
 
         def calcular_recompensa(self):
-            if self.status is 'CONCLUIDA':
+            if self.status is 'CONCLUÍDA':
                 recompensa=self.recompensa +(self.distancia*self.xp)
                 return recompensa
             else: 
                 return 0
-def concluir_missao(self, heroi):
-    ... 
+            
+        def exibir_dados(self):
+                msg = f'''
+                [{self.__class__.__name__}]
+                Nome: {self.nome}
+                Descrição: {self.descricao}
+                Recompensa: {self.recompensa}
+                Status: {self.status}
+                '''
 
-def exibir_dados(self):
-        msg = f'''
-[{self.__class__.__name__}]
-Nome: {self.nome}
-Descrição: {self.descricao}
-Recompensa: {self.recompensa}
-Status: {self.status}
-'''
-
-        return msg
+                return msg
 
 def __str__(self):
         return f'missão [{self.__class__.__name__}]: {self.nome} | status: {self.status}'
