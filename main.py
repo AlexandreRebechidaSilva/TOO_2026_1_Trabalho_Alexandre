@@ -9,9 +9,9 @@ def main():
     inimigo = Inimigo("Goblin", TipoInimigo.GOBLIN, 50, 50, 8, 3)
 
     missoes = [
-        Mis_combate("Defender a vila", "Derrotar o goblin", 100, inimigo,2,25),
-        Mis_coleta("Coletar ervas", "Encontrar ervas medicinais", 20, "Erva", 5,20),
-        Mis_transporte("Levar suprimentos", "Transportar uma carga", 20, "Suprimentos", 3,15,100),
+        Mis_combate("Defender a Vila", "Derrotar o Goblin", 100, inimigo,2,25),
+        Mis_coleta("Coletar Plantas", "Encontrar ervas medicinais", 20, "Samonbaia", 5,20),
+        Mis_transporte("Carga Medica","Transporte de Medicamentos", 20, "Café", 3,15,100),
     ]
 
     for indice, missao in enumerate(missoes):
